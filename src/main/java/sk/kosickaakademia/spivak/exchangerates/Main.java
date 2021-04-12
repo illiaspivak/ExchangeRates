@@ -1,6 +1,7 @@
 package sk.kosickaakademia.spivak.exchangerates;
 
 import sk.kosickaakademia.spivak.exchangerates.api.APIRequest;
+import sk.kosickaakademia.spivak.exchangerates.calculator.Calculator;
 
 import java.util.HashSet;
 import java.util.Map;
@@ -17,7 +18,7 @@ public class Main
         set.add("ILA");
         set.add("BTC");
 
-        Map map = new APIRequest().getExchangeRates(set);
-        System.out.println(map.toString());
+        Calculator calculator = new Calculator();
+        calculator.calculate(40);
     }
 }
