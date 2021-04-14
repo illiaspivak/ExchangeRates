@@ -11,6 +11,11 @@ public class Controller {
 
     public TextField amountOfMoney;
     public Button convert;
+    public TextField convertUAH;
+    public TextField convertRUB;
+    public TextField convertKZT;
+    public TextField convertVEF;
+    public TextField convertBTC;
 
     public void Convert(ActionEvent actionEvent) {
 
