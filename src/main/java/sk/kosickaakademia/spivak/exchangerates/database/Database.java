@@ -29,4 +29,6 @@ public class Database {
         db = mongoClient.getDB("ExchangeRates");
         table = db.getCollection("statistics");
     }
+
+
 }
