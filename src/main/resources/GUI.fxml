@@ -9,16 +9,16 @@
       <Button fx:id="convert" layoutX="213.0" layoutY="58.0" mnemonicParsing="false" onAction="#Convert" text="Convert" />
       <Label layoutX="174.0" layoutY="62.0" text="EUR" />
       <TextField fx:id="amountOfMoney" layoutX="85.0" layoutY="58.0" prefHeight="25.0" prefWidth="81.0" />
-      <TextField fx:id="convertUAH" layoutX="76.0" layoutY="103.0" prefHeight="25.0" prefWidth="140.0" />
-      <Label layoutX="39.0" layoutY="107.0" text="UAH" />
-      <TextField fx:id="convertRUB" layoutX="76.0" layoutY="139.0" prefHeight="25.0" prefWidth="140.0" />
-      <TextField fx:id="convertKZT" layoutX="76.0" layoutY="175.0" prefHeight="25.0" prefWidth="140.0" />
-      <TextField fx:id="convertVEF" layoutX="76.0" layoutY="210.0" prefHeight="25.0" prefWidth="140.0" />
-      <TextField fx:id="convertBTC" layoutX="76.0" layoutY="247.0" prefHeight="25.0" prefWidth="140.0" />
-      <Label layoutX="39.0" layoutY="143.0" text="RUB" />
-      <Label layoutX="39.0" layoutY="179.0" text="KZT" />
-      <Label layoutX="39.0" layoutY="214.0" text="VEF" />
-      <Label layoutX="39.0" layoutY="251.0" text="BTC" />
+      <TextField fx:id="convertUAH" layoutX="64.0" layoutY="103.0" prefHeight="25.0" prefWidth="140.0" />
+      <Label layoutX="35.0" layoutY="107.0" text="UAH" />
+      <TextField fx:id="convertRUB" layoutX="64.0" layoutY="139.0" prefHeight="25.0" prefWidth="140.0" />
+      <TextField fx:id="convertKZT" layoutX="64.0" layoutY="175.0" prefHeight="25.0" prefWidth="140.0" />
+      <TextField fx:id="convertVEF" layoutX="64.0" layoutY="210.0" prefHeight="25.0" prefWidth="140.0" />
+      <TextField fx:id="convertBTC" layoutX="64.0" layoutY="247.0" prefHeight="25.0" prefWidth="140.0" />
+      <Label layoutX="36.0" layoutY="143.0" text="RUB" />
+      <Label layoutX="37.0" layoutY="179.0" text="KZT" />
+      <Label layoutX="38.0" layoutY="214.0" text="VEF" />
+      <Label layoutX="37.0" layoutY="251.0" text="BTC" />
       <Label layoutX="223.0" layoutY="107.0" text="Ukrainian hryvnia" />
       <Label layoutX="223.0" layoutY="143.0" text="Russian ruble" />
       <Label layoutX="223.0" layoutY="179.0" text="Kazakhstani tenge" />
@@ -30,11 +30,16 @@
          <font>
             <Font name="Arial" size="17.0" />
          </font></Label>
-      <Label layoutX="41.0" layoutY="320.0" text="AAA" />
+      <Label layoutX="48.0" layoutY="320.0" text="AAA" />
       <Label layoutX="119.0" layoutY="25.0" text="Enter an amount">
          <font>
             <Font name="Arial" size="17.0" />
          </font>
       </Label>
+      <Label layoutX="210.0" layoutY="107.0" text="₴" />
+      <Label layoutX="210.0" layoutY="143.0" text="₽" />
+      <Label layoutX="210.0" layoutY="179.0" text="₸" />
+      <Label layoutX="210.0" layoutY="214.0" />
+      <Label layoutX="210.0" layoutY="251.0" text="₿" />
    </children>
 </AnchorPane>
