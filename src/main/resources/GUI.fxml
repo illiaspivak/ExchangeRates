@@ -8,12 +8,12 @@
       <Button fx:id="convert" layoutX="178.0" layoutY="59.0" mnemonicParsing="false" onAction="#Convert" text="Convert" />
       <Label layoutX="139.0" layoutY="63.0" text="EUR" />
       <TextField fx:id="amountOfMoney" layoutX="50.0" layoutY="59.0" prefHeight="25.0" prefWidth="81.0" />
-      <TextField fx:id="convertUAH" layoutX="76.0" layoutY="103.0" prefHeight="25.0" prefWidth="92.0" />
+      <TextField fx:id="convertUAH" layoutX="76.0" layoutY="103.0" prefHeight="25.0" prefWidth="114.0" />
       <Label layoutX="39.0" layoutY="107.0" text="UAH" />
-      <TextField fx:id="convertRUB" layoutX="76.0" layoutY="139.0" prefHeight="25.0" prefWidth="92.0" />
-      <TextField fx:id="convertKZT" layoutX="76.0" layoutY="175.0" prefHeight="25.0" prefWidth="92.0" />
-      <TextField fx:id="convertVEF" layoutX="76.0" layoutY="210.0" prefHeight="25.0" prefWidth="92.0" />
-      <TextField fx:id="convertBTC" layoutX="76.0" layoutY="247.0" prefHeight="25.0" prefWidth="92.0" />
+      <TextField fx:id="convertRUB" layoutX="76.0" layoutY="139.0" prefHeight="25.0" prefWidth="114.0" />
+      <TextField fx:id="convertKZT" layoutX="76.0" layoutY="175.0" prefHeight="25.0" prefWidth="114.0" />
+      <TextField fx:id="convertVEF" layoutX="76.0" layoutY="210.0" prefHeight="25.0" prefWidth="114.0" />
+      <TextField fx:id="convertBTC" layoutX="76.0" layoutY="247.0" prefHeight="25.0" prefWidth="114.0" />
       <Label layoutX="39.0" layoutY="143.0" text="RUB" />
       <Label layoutX="39.0" layoutY="179.0" text="KZT" />
       <Label layoutX="39.0" layoutY="214.0" text="VEF" />
