@@ -19,12 +19,13 @@ import java.util.Set;
 @SpringBootApplication
 public class Main extends Application
 {
+    private static final String[] rates= new String[]{"UAH","RUB","KZT","VEF","BTC"};
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("/GUI.fxml"));
         primaryStage.setTitle("Exchange Rates");
-        primaryStage.setScene(new Scene(root, 350, 200));
+        primaryStage.setScene(new Scene(root, 300, 400));
         primaryStage.show();
     }
 
@@ -32,7 +33,6 @@ public class Main extends Application
     public static void main( String[] args )
     {
         SpringApplication.run(Main.class,args);
-        Database database = new Database();
         launch(args);
 
     }

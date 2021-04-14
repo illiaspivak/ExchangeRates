@@ -6,6 +6,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import sk.kosickaakademia.spivak.exchangerates.calculator.Calculator;
+import sk.kosickaakademia.spivak.exchangerates.database.Database;
 
 import java.text.DecimalFormat;
 import java.util.Map;
@@ -25,12 +26,14 @@ public class Controller {
         String value = amountOfMoney.getText();
         double valueEur=Double.parseDouble(value);
         Calculator calculator =new Calculator();
+        Database database = new Database();
         Map results = calculator.calculate(valueEur,rates);
         convertUAH.setText(convertTo2Decimal((double)results.get("UAH")));
         convertRUB.setText(convertTo2Decimal((double)results.get("RUB")));
         convertKZT.setText(convertTo2Decimal((double)results.get("KZT")));
         convertVEF.setText(convertTo2Decimal((double)results.get("VEF")));
         convertBTC.setText(results.get("BTC").toString());
+        database.insertNewData(valueEur,rates);
     }
 
     private String convertTo2Decimal(double value){

@@ -10,6 +10,7 @@ import org.json.simple.parser.JSONParser;
 import com.mongodb.MongoClient;
 import org.json.simple.parser.ParseException;
 import sk.kosickaakademia.spivak.exchangerates.log.Log;
+import sk.kosickaakademia.spivak.exchangerates.util.Util;
 
 public class Database {
     Log log = new Log();
@@ -28,6 +29,19 @@ public class Database {
         //Create database and collection
         db = mongoClient.getDB("ExchangeRates");
         table = db.getCollection("statistics");
+    }
+
+    public boolean insertNewData(double eur, String[] ratesGui){
+        BasicDBObject document = new BasicDBObject();
+        Util util = new Util();
+
+        document.put("date", util.getCurrentTime());
+        document.put("amount", eur);
+        document.put("currencies",ratesGui);
+
+        table.insert(document);
+        log.print("Data added to the database");
+        return true;
     }
 
 
