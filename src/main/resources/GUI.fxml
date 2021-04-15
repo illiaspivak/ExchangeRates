@@ -72,5 +72,6 @@
             <Image url="@../../images/Bitcoin.png" />
          </image>
       </ImageView>
+      <Label layoutX="210.0" layoutY="214.0" text="Bs" />
    </children>
 </AnchorPane>
