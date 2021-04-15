@@ -20,7 +20,7 @@ public class APIRequest {
      * Getting the exchange rate against the euro
      * @return String - Currency exchange rates received (all information is written in one line)
      */
-    public String getRatesFromAPIServer(){
+    private String getRatesFromAPIServer(){
         try {
             //path to endpoint. Security.getKey() - API Access Key
             URL url = new URL("http://api.exchangeratesapi.io/v1/latest?access_key="+ Security.getKey() +"&format=1");
@@ -60,40 +60,49 @@ public class APIRequest {
         return null;
     }
 
+    /**
+     * Creating a HashMap for selected currencies
+     * @param rates
+     * @return HashMap: currency name - currency rate {USD=1.197411, ...}
+     */
     public Map getExchangeRates(Set<String> rates){
-        if(rates==null || rates.size() ==0)
+        if(rates==null || rates.size() ==0) {
+            log.error("Missing input data");
             return null;
-
-        return parseData(rates);
-    }
-
-
-
-    private Map parseData(Set<String> rates){
-        String inline=getRatesFromAPIServer();
-        if(inline==null)
+        }
+        log.info("getting all currency exchange rates in String");
+        String allRates = getRatesFromAPIServer();
+        if(allRates==null) {
+            log.error("No connection to the server");
             return null;
-
+        }
         try {
+            log.info("Parse of the String to Json");
             JSONParser parse = new JSONParser();
-            JSONObject data_obj = (JSONObject) parse.parse(inline);
+            JSONObject objectAllInformation = (JSONObject) parse.parse(allRates);
+            log.info("Full Json");
+            System.out.println(objectAllInformation);
 
-            JSONObject obj = (JSONObject) data_obj.get("rates");
+            log.info("Taking the only currency exchange rate from the whole Json");
+            JSONObject objectOnlyRates = (JSONObject) objectAllInformation.get("rates");
+            log.info("Json currency exchange rate");
+            System.out.println(objectOnlyRates);
 
-            Map<String,Double> maps = new HashMap<>();
-
+            log.info("Creating the HashMap: currency name - currency rate");
+            Map<String,Double> mapRates = new HashMap<>();
+            //Recording the exchange rates of the selected currencies in the Set
             for(String temp:rates){
-                if(obj.containsKey(temp)){
-                    double value= (double)obj.get(temp);
-                    maps.put(temp,value);
+                if(objectOnlyRates.containsKey(temp)){      //Does this currency exist in json?
+                    double value= (double)objectOnlyRates.get(temp);
+                    mapRates.put(temp,value);
                 }
             }
-            return maps;
-
+            log.print("Received the HashMap: currency name - currency rate");
+            return mapRates;
         }catch(Exception ex){
-            ex.printStackTrace();
+            log.error(ex.toString());
         }
+        log.error("Couldn't get exchange rates");
         return null;
     }
-
 }
