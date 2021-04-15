@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
@@ -25,12 +26,12 @@
       <Label layoutX="223.0" layoutY="214.0" text="Venezuelan bolívar" />
       <Label layoutX="223.0" layoutY="251.0" text="Bitcoin" />
       <ComboBox layoutX="223.0" layoutY="316.0" prefHeight="25.0" prefWidth="110.0" />
-      <TextField fx:id="convertCurrency" layoutX="76.0" layoutY="316.0" prefHeight="25.0" prefWidth="140.0" />
+      <TextField fx:id="convertCurrency" layoutX="64.0" layoutY="316.0" prefHeight="25.0" prefWidth="140.0" />
       <Label layoutX="119.0" layoutY="285.0" text="Select a currency">
          <font>
             <Font name="Arial" size="17.0" />
          </font></Label>
-      <Label layoutX="48.0" layoutY="320.0" text="AAA" />
+      <Label layoutX="36.0" layoutY="320.0" text="AAA" />
       <Label layoutX="119.0" layoutY="25.0" text="Enter an amount">
          <font>
             <Font name="Arial" size="17.0" />
@@ -41,5 +42,30 @@
       <Label layoutX="210.0" layoutY="179.0" text="₸" />
       <Label layoutX="210.0" layoutY="214.0" />
       <Label layoutX="210.0" layoutY="251.0" text="₿" />
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="14.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/C:/Kosicka%20Akademia/2021/Second%20semester/ExchangeRates/src/images/Ukraine.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="14.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/C:/Kosicka%20Akademia/2021/Second%20semester/ExchangeRates/src/images/Russia.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="14.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/C:/Kosicka%20Akademia/2021/Second%20semester/ExchangeRates/src/images/Kazakhstan.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="14.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/C:/Kosicka%20Akademia/2021/Second%20semester/ExchangeRates/src/images/Venezuela.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="14.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/C:/Kosicka%20Akademia/2021/Second%20semester/ExchangeRates/src/images/Bitcoin.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
