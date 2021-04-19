@@ -32,7 +32,9 @@ public class Main extends Application
 
     public static void main( String[] args )
     {
-        SpringApplication.run(Main.class,args);
-        launch(args);
+        APIRequest apiRequest = new APIRequest();
+        apiRequest.getExchangeRate("UAH");
+        //SpringApplication.run(Main.class,args);
+        //launch(args);
     }
 }

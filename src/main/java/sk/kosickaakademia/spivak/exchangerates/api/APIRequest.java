@@ -5,6 +5,8 @@ import org.json.simple.parser.JSONParser;
 import sk.kosickaakademia.spivak.exchangerates.log.Log;
 import sk.kosickaakademia.spivak.exchangerates.sequrity.Security;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
@@ -105,5 +107,37 @@ public class APIRequest {
         }
         log.error("Couldn't get exchange rates");
         return null;
+    }
+
+    public void getExchangeRate(String rate){
+        //path to endpoint. Security.getKey() - API Access Key
+        String query = "http://api.exchangeratesapi.io/v1/latest?access_key=" + Security.getKey() + "&symbols=" + rate;
+        HttpURLConnection connection = null;
+        try{
+            connection = (HttpURLConnection) new URL(query).openConnection();
+            connection.connect();
+
+            StringBuilder response = new StringBuilder();
+
+            if(HttpURLConnection.HTTP_OK == connection.getResponseCode()){ //response code 200
+                BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+
+                String line;
+                while((line = in.readLine()) != null){
+                    response.append(line);
+                    response.append("\n");
+                }
+                System.out.println(response.toString());
+            }else{
+                System.out.println(connection.getResponseCode());
+            }
+        }catch (Throwable cause){
+            log.error(cause.toString());
+        }finally {
+            if(connection!=null){
+                connection.disconnect();
+            }
+        }
+
     }
 }
