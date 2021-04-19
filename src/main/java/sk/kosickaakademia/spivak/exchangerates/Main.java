@@ -32,19 +32,7 @@ public class Main extends Application
 
     public static void main( String[] args )
     {
-
-      //  SpringApplication.run(Main.class,args);
-       // launch(args);
-        Set<String> set = new HashSet<>();
-        set.add("USD");
-        set.add("UAH");
-        set.add("RUB");
-        set.add("ILA");
-        set.add("BTC");
-
-        Map map = new APIRequest().getExchangeRates(set);
-        System.out.println(map.toString());
-
-
+        SpringApplication.run(Main.class,args);
+        launch(args);
     }
 }
