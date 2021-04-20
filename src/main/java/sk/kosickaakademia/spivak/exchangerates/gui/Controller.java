@@ -15,6 +15,7 @@ import java.util.Map;
 
 public class Controller {
     public TextField currency;
+    public TextField convertCurrency;
     APIRequest apiRequest = new APIRequest();
 
     private static final String[] rates= new String[]{"UAH","RUB","KZT","VEF","BTC"};
@@ -32,6 +33,7 @@ public class Controller {
 
     public void Convert(ActionEvent actionEvent) {
         String value = amountOfMoney.getText();
+        String currencyFromBox = currency.getText();
         double valueEur=Double.parseDouble(value);
         Calculator calculator =new Calculator();
         Database database = new Database();
@@ -41,6 +43,7 @@ public class Controller {
         convertKZT.setText(convertTo2Decimal((double)results.get("KZT")));
         convertVEF.setText(convertTo2Decimal((double)results.get("VEF")));
         convertBTC.setText(results.get("BTC").toString());
+        convertCurrency.setText(convertTo2Decimal(calculator.calculate(valueEur,currencyFromBox)));
         database.insertNewData(valueEur,rates);
     }
 
@@ -52,9 +55,9 @@ public class Controller {
 
     @FXML
     private void initialize() {
-        currency.setText("DOL");
         selectCurrency.getItems().setAll(apiRequest.getCurrency());
-        selectCurrency.setValue("DOL");
+        selectCurrency.setValue("USD");
+        currency.setText("USD");
     }
     public void SelectCurrency(ActionEvent actionEvent) {
         currency.setText((String) selectCurrency.getValue());

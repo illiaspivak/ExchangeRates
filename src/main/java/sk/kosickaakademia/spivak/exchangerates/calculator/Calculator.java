@@ -37,7 +37,13 @@ public class Calculator {
         log.print("Converted currencies received");
         return values;
     }
-    
+
+    /**
+     * Getting converted currency
+     * @param eur
+     * @param currency
+     * @return double
+     */
     public double calculate (double eur, String currency){
         if(eur<0 || currency == null){
             log.error("Incorrect input data");
