@@ -5,16 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import sk.kosickaakademia.spivak.exchangerates.api.APIRequest;
-import sk.kosickaakademia.spivak.exchangerates.calculator.Calculator;
-import sk.kosickaakademia.spivak.exchangerates.database.Database;
-
-import java.net.URL;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
 
 @SpringBootApplication
 public class Main extends Application
@@ -33,7 +25,7 @@ public class Main extends Application
     public static void main( String[] args )
     {
         APIRequest apiRequest = new APIRequest();
-        apiRequest.getExchangeRate("UAH");
+        System.out.println(apiRequest.getExchangeRate("UAH"));
         //SpringApplication.run(Main.class,args);
         //launch(args);
     }

@@ -109,15 +109,20 @@ public class APIRequest {
         return null;
     }
 
-    public void getExchangeRate(String rate){
+    /**
+     * Getting the exchange rate for a specific currency
+     * @param currency
+     * @return double rate
+     */
+    public double getExchangeRate(String currency){
         //path to endpoint. Security.getKey() - API Access Key
-        String query = "http://api.exchangeratesapi.io/v1/latest?access_key=" + Security.getKey() + "&symbols=" + rate;
+        String query = "http://api.exchangeratesapi.io/v1/latest?access_key=" + Security.getKey() + "&symbols=" + currency;
         HttpURLConnection connection = null;
         try{
             connection = (HttpURLConnection) new URL(query).openConnection();
             connection.connect();
 
-            StringBuilder response = new StringBuilder();
+            StringBuilder response = new StringBuilder(); //Response from the server
 
             if(HttpURLConnection.HTTP_OK == connection.getResponseCode()){ //response code 200
                 BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
@@ -127,9 +132,15 @@ public class APIRequest {
                     response.append(line);
                     response.append("\n");
                 }
-                System.out.println(response.toString());
+                JSONParser parse = new JSONParser();
+                JSONObject jsonObject = (JSONObject) parse.parse(String.valueOf(response));
+
+                JSONObject jsonRate = (JSONObject) jsonObject.get("rates");
+                double value= (double)jsonRate.get(currency);
+                log.print("Rate reserved");
+                return value;
             }else{
-                System.out.println(connection.getResponseCode());
+                log.error("Response code: " + connection.getResponseCode());
             }
         }catch (Throwable cause){
             log.error(cause.toString());
@@ -138,6 +149,6 @@ public class APIRequest {
                 connection.disconnect();
             }
         }
-
+        return -1;
     }
 }
