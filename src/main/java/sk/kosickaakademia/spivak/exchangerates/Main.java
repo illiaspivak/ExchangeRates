@@ -25,7 +25,7 @@ public class Main extends Application
     public static void main( String[] args )
     {
         APIRequest apiRequest = new APIRequest();
-        System.out.println(apiRequest.getExchangeRate("UAH"));
+        System.out.println(apiRequest.getCurrency());
         //SpringApplication.run(Main.class,args);
         //launch(args);
     }

@@ -1,5 +1,6 @@
 package sk.kosickaakademia.spivak.exchangerates.api;
 
+import org.json.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import sk.kosickaakademia.spivak.exchangerates.log.Log;
@@ -9,10 +10,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 
 public class APIRequest {
@@ -150,5 +148,31 @@ public class APIRequest {
             }
         }
         return -1;
+    }
+
+    /**
+     * Getting a list of all currencies
+     * @return Set<String>
+     */
+    public Set<String> getCurrency(){
+        String allRates = getRatesFromAPIServer();
+        if(allRates==null) {
+            log.error("No connection to the server");
+            return null;
+        }
+        try {
+            JSONParser parse = new JSONParser();
+            JSONObject objectAllInformation = (JSONObject) parse.parse(allRates);
+
+            JSONObject objectOnlyRates = (JSONObject) objectAllInformation.get("rates");
+            log.info("Json currency exchange rate" + objectOnlyRates);
+
+            Set<String> currencies =  objectOnlyRates.keySet();
+            return currencies;
+        }catch(Exception ex){
+            log.error(ex.toString());
+        }
+        log.error("Couldn't get currencies");
+        return null;
     }
 }
