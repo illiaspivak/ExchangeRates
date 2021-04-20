@@ -24,9 +24,7 @@ public class Main extends Application
 
     public static void main( String[] args )
     {
-        APIRequest apiRequest = new APIRequest();
-        System.out.println(apiRequest.getCurrency());
         //SpringApplication.run(Main.class,args);
-        //launch(args);
+        launch(args);
     }
 }

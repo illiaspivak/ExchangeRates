@@ -30,13 +30,12 @@
       <Label layoutX="223.0" layoutY="179.0" text="Kazakhstani tenge" />
       <Label layoutX="223.0" layoutY="214.0" text="Venezuelan bolívar" />
       <Label layoutX="223.0" layoutY="251.0" text="Bitcoin" />
-      <ComboBox layoutX="223.0" layoutY="316.0" prefHeight="25.0" prefWidth="110.0" />
+      <ComboBox fx:id="selectCurrency" layoutX="223.0" layoutY="316.0" onAction="#SelectCurrency" prefHeight="25.0" prefWidth="110.0" />
       <TextField fx:id="convertCurrency" layoutX="64.0" layoutY="316.0" prefHeight="25.0" prefWidth="140.0" />
       <Label layoutX="119.0" layoutY="285.0" text="Select a currency">
          <font>
             <Font name="Arial" size="17.0" />
          </font></Label>
-      <Label layoutX="36.0" layoutY="320.0" text="AAA" />
       <Label layoutX="119.0" layoutY="25.0" text="Enter an amount">
          <font>
             <Font name="Arial" size="17.0" />
@@ -73,5 +72,6 @@
          </image>
       </ImageView>
       <Label layoutX="210.0" layoutY="214.0" text="Bs" />
+      <TextField fx:id="currency" layoutX="177.0" layoutY="341.0" prefHeight="25.0" prefWidth="81.0" visible="false" />
    </children>
 </AnchorPane>
