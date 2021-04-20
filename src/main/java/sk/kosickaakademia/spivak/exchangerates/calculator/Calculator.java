@@ -37,4 +37,15 @@ public class Calculator {
         log.print("Converted currencies received");
         return values;
     }
+    
+    public double calculate (double eur, String currency){
+        if(eur<0 || currency == null){
+            log.error("Incorrect input data");
+            return -1;
+        }
+        APIRequest apiRequest = new APIRequest();
+        double rate = apiRequest.getExchangeRate(currency);
+        double result = eur*rate;
+        return result;
+    }
 }
